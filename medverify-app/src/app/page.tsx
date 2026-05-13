@@ -1,6 +1,7 @@
 import { fetchAllBatches, fetchRecentLedgerActivity } from "@/lib/xrpl";
 import DashboardShell from "./DashboardShell";
 
+export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
 export default async function Dashboard() {

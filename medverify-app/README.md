@@ -407,6 +407,14 @@ The prompt instructs Claude to behave as a pharmaceutical supply chain auditor a
 
 Anomaly rules in the prompt: out-of-order timestamps between steps, missing required steps, the same wallet address appearing in multiple roles, and gaps between steps that are implausibly short (sub-minute) or long (over 30 days).
 
+#### The gap between dashboard and verify anomaly detection
+
+The two anomaly layers are not in sync. The dashboard runs a local timestamp comparison — it only catches cases where a later step has an earlier timestamp than the step before it. It misses everything else: skipped steps, duplicate actors, implausible gaps. A batch that went manufacturer → pharmacy with no distributor in between would show no anomaly flag on the dashboard at all, because the timestamps are still in order.
+
+The verify page catches all of this via Claude, but only when someone actively opens that specific batch. The dashboard anomaly count and the AI's `trustLevel` can therefore disagree — a batch could be `suspicious` on the verify page while showing clean on the dashboard.
+
+In an ideal setup the two would be unified: Claude analysis would run once per batch when it reaches a terminal state (all three steps confirmed or a timeout elapsed), the result would be stored in a database, and the dashboard would read from that cache. The dashboard anomaly count would then reflect the same logic as the per-batch AI verdict, and there would be no discrepancy between the two views.
+
 ### What was intentionally left out
 
 Several features from the original design were deprioritized for the hackathon:
