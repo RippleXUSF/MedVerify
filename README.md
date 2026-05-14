@@ -2,8 +2,6 @@
 
 A decentralized pharmaceutical supply chain tracker built on the XRP Ledger. Every custody handoff — from factory floor to dispensing counter — is anchored on-chain as a tamper-proof record. Patients scan a QR code to see the full verified journey of their medication. An AI layer flags broken chains and summarizes the custody history in plain language.
 
-Built for the XRPL Hackathon, May 2026.
-
 ---
 
 ## Table of Contents
@@ -411,7 +409,7 @@ In an ideal setup the two would be unified: Claude analysis would run once per b
 
 ### What was intentionally left out
 
-Several features from the original design were deprioritized for the hackathon:
+Several features from the original design were deprioritized:
 
 **XUMM wallet connection.** Integrating XUMM would make the app genuinely multi-party — each role would need to connect their real wallet to sign transactions. This was left out because it requires a XUMM developer API key, a mobile device for approval flows, and significantly more auth infrastructure. The server-side key model was chosen as a demo-appropriate substitute, with the understanding that this would be the first thing replaced in a production version.
 
