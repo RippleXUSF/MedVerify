@@ -33,7 +33,7 @@ Patients scan a QR code on the packaging to see:
 - A three-step custody timeline: manufacturer → distributor → pharmacy
 - An AI-generated plain-language summary of the chain
 - Any detected anomalies (timestamp inversions, skipped steps)
-- A direct link to the XRPL testnet explorer to inspect the raw transactions
+- A direct link to the XRPL mainnet explorer to inspect the raw transactions
 
 ---
 
@@ -92,7 +92,7 @@ Anomaly detection rules include: out-of-order timestamps, missing steps, the sam
 | Layer | Technology |
 |---|---|
 | Framework | Next.js 16.2.4 (App Router, TypeScript) |
-| Blockchain | XRP Ledger Testnet via xrpl.js v4 |
+| Blockchain | XRP Ledger Mainnet via xrpl.js v4 |
 | AI analysis | Anthropic Claude API (claude-opus-4-7) |
 | Styling | Tailwind CSS v4 + inline styles |
 | Fonts | Fraunces (display/serif), DM Mono (monospace) via Google Fonts |
@@ -142,18 +142,12 @@ src/
 ### Prerequisites
 
 - Node.js 18+
-- Three funded XRPL testnet wallets (manufacturer, distributor, pharmacy)
+- Three funded XRPL mainnet wallets (manufacturer, distributor, pharmacy)
 - An Anthropic API key
 
-### Fund testnet wallets
+### Fund mainnet wallets
 
-Use the XRPL testnet faucet to generate and fund wallets:
-
-```
-https://faucet.altnet.rippletest.net/accounts
-```
-
-Generate three wallets. You will need:
+Create and fund three XRPL mainnet wallets. You will need:
 - The **seed** for the manufacturer wallet (used server-side for signing mints)
 - The **seed** for the distributor wallet (used server-side for signing confirmations)
 - The **seed** for the pharmacy wallet (used server-side for signing confirmations)
@@ -387,9 +381,9 @@ All XRPL transaction signing happens inside Next.js API route handlers. Wallet s
 
 This is the correct security boundary for a web app. The alternative (client-side signing with xrpl.js in the browser) would require delivering a seed or private key to every browser that loads the page, which is not viable even for a demo.
 
-#### Testnet wallet provisioning
+#### Mainnet wallet provisioning
 
-A funded issuer wallet was generated programmatically at setup time using `client.fundWallet()` from xrpl.js, which hits the XRPL testnet faucet and returns a `{wallet, balance}` object. The seed was written directly into `.env.local`. This approach was chosen over the web faucet UI to keep the setup reproducible in a script, and the address is noted in `.env.local` comments for reference when inspecting the explorer.
+Three XRPL mainnet wallets (manufacturer, distributor, pharmacy) were created and funded with real XRP. Seeds are stored in `.env.local` and loaded server-side at runtime. The app connects to `wss://xrplcluster.com` (the Cloudflare-backed public mainnet cluster) for all on-chain reads and writes.
 
 #### Concept pivot — pharmacy-centric to supply chain
 

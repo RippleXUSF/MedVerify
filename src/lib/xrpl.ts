@@ -7,7 +7,7 @@ import {
   convertHexToString,
 } from "xrpl";
 
-export const XRPL_TESTNET = "wss://s.altnet.rippletest.net:51233";
+export const XRPL_MAINNET = "wss://xrplcluster.com";
 
 export interface BatchData {
   drugName: string;
@@ -49,7 +49,7 @@ export async function mintBatchNFT(batchData: BatchData): Promise<MintResult> {
   const seed = process.env.XRPL_MANUFACTURER_SEED;
   if (!seed) throw new Error("XRPL_MANUFACTURER_SEED env var not set");
 
-  const client = new Client(XRPL_TESTNET);
+  const client = new Client(XRPL_MAINNET);
   await client.connect();
 
   try {
@@ -149,7 +149,7 @@ export async function confirmCustody(
     if (!toAddress) throw new Error("XRPL_DISTRIBUTOR_ACCOUNT env var not set");
   }
 
-  const client = new Client(XRPL_TESTNET);
+  const client = new Client(XRPL_MAINNET);
   await client.connect();
 
   try {
@@ -200,7 +200,7 @@ export async function fetchCustodyChain(tokenId: string): Promise<CustodyChain> 
   const distributorAddress = process.env.XRPL_DISTRIBUTOR_ACCOUNT ?? "";
   const pharmacyAddress = process.env.XRPL_PHARMACY_ACCOUNT ?? "";
 
-  const client = new Client(XRPL_TESTNET);
+  const client = new Client(XRPL_MAINNET);
   await client.connect();
 
   try {
@@ -276,7 +276,7 @@ export async function fetchAllBatches(): Promise<BatchSummary[]> {
   const distributorAddress = process.env.XRPL_DISTRIBUTOR_ACCOUNT ?? "";
   const pharmacyAddress = process.env.XRPL_PHARMACY_ACCOUNT ?? "";
 
-  const client = new Client(XRPL_TESTNET);
+  const client = new Client(XRPL_MAINNET);
   await client.connect();
 
   try {
@@ -372,7 +372,7 @@ export async function fetchRecentLedgerActivity(): Promise<LedgerActivity[]> {
   const distributorAddress = process.env.XRPL_DISTRIBUTOR_ACCOUNT ?? "";
   const pharmacyAddress = process.env.XRPL_PHARMACY_ACCOUNT ?? "";
 
-  const client = new Client(XRPL_TESTNET);
+  const client = new Client(XRPL_MAINNET);
   await client.connect();
 
   try {

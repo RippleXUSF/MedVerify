@@ -246,7 +246,7 @@ export default function VerifyPage() {
               {analysis && (
                 <div style={{ backgroundColor: "#111312", borderRadius: 8, padding: "12px 14px", marginTop: 14 }}>
                   <p style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "#6E6C66", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 6 }}>
-                    gemini flash · ai summary
+                    ai summary
                   </p>
                   <p style={{ fontSize: 13, color: "#6E6C66", lineHeight: 1.6, margin: 0 }}>{analysis.summary}</p>
                 </div>
@@ -255,11 +255,11 @@ export default function VerifyPage() {
               {/* XRPL tx row */}
               <div style={{ borderTop: "0.5px solid #272B29", marginTop: 10, paddingTop: 10, display: "flex", alignItems: "center", gap: 8 }}>
                 <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "#6E6C66", flexShrink: 0 }}>XRPL tx</span>
-                <a href={`https://testnet.xrpl.org/nft/${tokenId}`} target="_blank" rel="noopener noreferrer"
+                <a href={`https://livenet.xrpl.org/nft/${tokenId}`} target="_blank" rel="noopener noreferrer"
                   style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "#1FA87A", flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", textDecoration: "none" }}>
                   {tokenId}
                 </a>
-                <a href={`https://testnet.xrpl.org/nft/${tokenId}`} target="_blank" rel="noopener noreferrer">
+                <a href={`https://livenet.xrpl.org/nft/${tokenId}`} target="_blank" rel="noopener noreferrer">
                   <IconExternalLink size={13} color="#6E6C66" />
                 </a>
               </div>

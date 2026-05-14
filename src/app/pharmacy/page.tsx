@@ -212,7 +212,7 @@ export default function PharmacyPage() {
                       XRPL tx
                     </p>
                     <a
-                      href={`https://testnet.xrpl.org/transactions/${result.txHash}`}
+                      href={`https://livenet.xrpl.org/transactions/${result.txHash}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{

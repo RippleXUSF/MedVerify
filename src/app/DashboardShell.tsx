@@ -193,7 +193,7 @@ function ManufacturerView({ batches, activity }: { batches: BatchSummary[]; acti
             </Link>
           ))}
           <div style={{ height: "0.5px", backgroundColor: "#272B29", margin: "1rem 0" }} />
-          <p style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "#6E6C66", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 8 }}>gemini flash · chain analysis</p>
+          <p style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "#6E6C66", textTransform: "uppercase", letterSpacing: "1px", marginBottom: 8 }}>chain analysis</p>
           <p style={{ fontSize: 13, color: "#6E6C66", lineHeight: 1.6, backgroundColor: "#111312", borderRadius: 8, padding: "12px 14px", margin: 0 }}>
             {anomalous.length > 0
               ? `${anomalous.length} batch${anomalous.length !== 1 ? "es" : ""} flagged for timestamp irregularities. Open a batch on the verify page for full AI analysis.`
@@ -206,7 +206,7 @@ function ManufacturerView({ batches, activity }: { batches: BatchSummary[]; acti
       <div style={{ backgroundColor: "#1C1F1D", border: "0.5px solid #272B29", borderRadius: 12, padding: "1.25rem" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
           <span style={{ fontSize: 13, fontWeight: 500, color: "#E8E6E0" }}>XRPL ledger activity</span>
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "#6E6C66" }}>live · testnet</span>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "#6E6C66" }}>live · mainnet</span>
         </div>
         {activity.length === 0 ? (
           <p style={{ fontSize: 13, color: "#6E6C66" }}>No transactions yet.</p>
